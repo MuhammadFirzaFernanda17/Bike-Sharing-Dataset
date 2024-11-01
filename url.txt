@@ -1,0 +1,16 @@
+# URL Penting untuk Proyek Analisis Data Sewa Sepeda
+
+1. Dataset Sewa Sepeda:
+   - URL: [Link ke Dataset](https://www.kaggle.com/datasets/lakshmi25npathi/bike-sharing-dataset?resource=download) 
+
+2. Dokumentasi Streamlit:
+   - URL: [Streamlit Documentation](https://docs.streamlit.io)
+
+3. Panduan Matplotlib:
+   - URL: [Matplotlib Documentation](https://matplotlib.org/stable/contents.html)
+
+4. Panduan Seaborn:
+   - URL: [Seaborn Documentation](https://seaborn.pydata.org/)
+
+5. Tutorial Pandas:
+   - URL: [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)
