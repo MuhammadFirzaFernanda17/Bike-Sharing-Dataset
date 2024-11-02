@@ -105,6 +105,9 @@ rfm_df = df.groupby(['season', 'holiday', 'workingday']).agg({
 # Mengubah nama kolom
 rfm_df.columns = ['season', 'holiday', 'workingday', 'recency', 'frequency', 'monetary']
 
+# Pastikan monetary tidak memiliki nilai NaN dan berupa numerik
+rfm_df['monetary'] = pd.to_numeric(rfm_df['monetary'], errors='coerce').fillna(0)
+
 # Segmentasi berdasarkan kuartil
 rfm_df['r_quartile'] = pd.qcut(rfm_df['recency'], 4, labels=[4, 3, 2, 1])
 rfm_df['f_quartile'] = pd.qcut(rfm_df['frequency'], 4, labels=[1, 2, 3, 4])
@@ -135,8 +138,8 @@ ax4.set_ylabel('Jumlah Pelanggan')
 ax4.grid(axis='y', linestyle='--', alpha=0.7)
 st.pyplot(fig4)
 
-st.write("""
-**Insight:**
-- Jumlah penyewaan sepeda tertinggi pada kategori cuaca yang lebih baik.
-- Biasanya penyewaan sepeda paling tinggi terjadi pada jam-jam tertentu.
+# Teks insight dalam multiline dengan tiga kutip
+st.write("""**Insight:**
+- Pelanggan dengan skor RFM tinggi (432) adalah yang paling berharga, dengan frekuensi pembelian yang baik dan pengeluaran tinggi. Strategi retensi perlu difokuskan pada mereka.
+- Penyewaan sepeda lebih tinggi pada cuaca cerah dan pada jam sibuk.
 """)
