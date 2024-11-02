@@ -108,16 +108,21 @@ rfm_df.columns = ['season', 'holiday', 'workingday', 'recency', 'frequency', 'mo
 # Pastikan monetary tidak memiliki nilai NaN dan berupa numerik
 rfm_df['monetary'] = pd.to_numeric(rfm_df['monetary'], errors='coerce').fillna(0)
 
-# Segmentasi berdasarkan kuartil
-rfm_df['r_quartile'] = pd.qcut(rfm_df['recency'], 4, labels=[4, 3, 2, 1])
-rfm_df['f_quartile'] = pd.qcut(rfm_df['frequency'], 4, labels=[1, 2, 3, 4])
-rfm_df['m_quartile'] = pd.qcut(rfm_df['monetary'], 4, labels=[1, 2, 3, 4])
+# Segmentasi berdasarkan kuartil dengan try-except
+try:
+    rfm_df['r_quartile'] = pd.qcut(rfm_df['recency'], 4, labels=[4, 3, 2, 1])
+    rfm_df['f_quartile'] = pd.qcut(rfm_df['frequency'], 4, labels=[1, 2, 3, 4])
+    rfm_df['m_quartile'] = pd.qcut(rfm_df['monetary'], 4, labels=[1, 2, 3, 4])
+except ValueError:
+    # Jika ValueError, gunakan pd.cut sebagai alternatif
+    rfm_df['r_quartile'] = pd.cut(rfm_df['recency'], bins=4, labels=[4, 3, 2, 1], include_lowest=True)
+    rfm_df['f_quartile'] = pd.cut(rfm_df['frequency'], bins=4, labels=[1, 2, 3, 4], include_lowest=True)
+    rfm_df['m_quartile'] = pd.cut(rfm_df['monetary'], bins=4, labels=[1, 2, 3, 4], include_lowest=True)
 
 # Menghitung RFM Score
 rfm_df['RFMScore'] = rfm_df['r_quartile'].astype(str) + rfm_df['f_quartile'].astype(str) + rfm_df['m_quartile'].astype(str)
 st.write("RFM Score:")
 st.write(rfm_df[['season', 'holiday', 'workingday', 'recency', 'frequency', 'monetary', 'RFMScore']].head())
-
 # Visualisasi Distribusi Monetary
 st.subheader("Distribusi Pengeluaran berdasarkan Musim dan Hari Kerja")
 fig3, ax3 = plt.subplots()
