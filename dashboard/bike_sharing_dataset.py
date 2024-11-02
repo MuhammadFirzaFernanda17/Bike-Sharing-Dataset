@@ -135,6 +135,8 @@ ax4.set_ylabel('Jumlah Pelanggan')
 ax4.grid(axis='y', linestyle='--', alpha=0.7)
 st.pyplot(fig4)
 
-st.write("**Insight:**
-- Pelanggan dengan skor RFM tinggi (432) adalah yang paling berharga, dengan frekuensi pembelian yang baik dan pengeluaran tinggi. Strategi retensi perlu difokuskan pada mereka.
-- Penyewaan sepeda lebih tinggi pada cuaca cerah dan pada jam sibuk.")
+st.write("""
+**Insight:**
+- Jumlah penyewaan sepeda tertinggi pada kategori cuaca yang lebih baik.
+- Biasanya penyewaan sepeda paling tinggi terjadi pada jam-jam tertentu.
+""")
