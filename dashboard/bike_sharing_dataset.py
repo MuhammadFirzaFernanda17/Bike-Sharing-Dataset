@@ -24,6 +24,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import csv
+import streamlit as st
 
 """## Data Wrangling
 
