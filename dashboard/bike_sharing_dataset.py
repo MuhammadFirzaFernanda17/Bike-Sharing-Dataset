@@ -148,3 +148,12 @@ st.write("""**Insight:**
 - Pelanggan dengan skor RFM tinggi (432) adalah yang paling berharga, dengan frekuensi pembelian yang baik dan pengeluaran tinggi. Strategi retensi perlu difokuskan pada mereka.
 - Penyewaan sepeda lebih tinggi pada cuaca cerah dan pada jam sibuk.
 """)
+
+# Teks Kesimpulan
+st.write("""**Conclusion**
+-Conclution pertanyaan 1
+Rata-rata jumlah penyewaan sepeda paling tinggi terjadi pada kondisi cuaca cerah menunjukkan bahwa cuaca yang baik mendorong lebih banyak orang untuk menyewa sepeda.
+Kondisi cuaca seperti hujan dan salju menunjukkan rata-rata penyewaan yang lebih rendah, menandakan bahwa cuaca ekstrem mengurangi minat masyarakat untuk menggunakan layanan penyewaan sepeda.
+-Conclution pertanyaan 2
+Data menunjukkan bahwa penyewaan sepeda mencapai puncaknya pada jam-jam tertentu, biasanya di pagi hari (sekitar pukul 8-9) dan sore hari (sekitar pukul 17-18). Ini mencerminkan pola penggunaan sepeda oleh orang-orang yang berangkat ke tempat kerja atau pulang dari aktivitas sehari-hari.
+""")
